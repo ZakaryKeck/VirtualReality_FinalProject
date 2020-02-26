@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class SugarController : MonoBehaviour
 {
+    public Material pouringTexture;
+    public GameObject ccMachine;
+
+    private int amountInBag;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +20,9 @@ public class SugarController : MonoBehaviour
     void Update()
     {
         
+        if (transform.eulerAngles.x >= 45)
+        {
+            gameObject.GetComponent().material = pouringTexture;
+        }
     }
 }
