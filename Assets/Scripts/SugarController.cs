@@ -20,9 +20,9 @@ public class SugarController : MonoBehaviour
     void Update()
     {
         
-        if (transform.eulerAngles.x >= 45)
-        {
-            gameObject.GetComponent().material = pouringTexture;
-        }
+        //if (transform.eulerAngles.x >= 45)
+        //{
+        //    gameObject.GetComponent().material = pouringTexture;
+        //}
     }
 }

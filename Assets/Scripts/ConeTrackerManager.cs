@@ -14,14 +14,16 @@ public class ConeTrackerManager : MonoBehaviour
         if (RotationChecker.CheckComplete())
         {
             //Increase Cone Size
-            CurrentCone.transform.localScale = new Vector3(1, 1, 1);
+            CurrentCone.transform.localScale = CurrentCone.transform.localScale + new Vector3(.1f, .1f, .1f);
         }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        //Check tag?
-        CurrentCone = other.gameObject;
+        if(other.gameObject.tag == "EmptyCone")
+        {
+            CurrentCone = other.gameObject;
+        }
     }
 
 }
@@ -37,17 +39,18 @@ public class RotationChecker
     //Enum to track direction of rotation, "Clockwise" or "Counterclockwise"
     private Directions Direction = Directions.None;
     //Float stating what percent of checkpoints need to be hit per rotation
-    private float SuccessThreshold = 0.75f;
+    private float SuccessThreshold = 1f;
 
     public bool CheckComplete()
     {
-        var numCheckPointsTouched = 0;
+        var numCheckPointsTouched = 0f;
         for(int i = 0; i < CheckPointStatuses.Length; i++)
         {
             numCheckPointsTouched += CheckPointStatuses[i];
         }
         bool success = (numCheckPointsTouched / CheckPointStatuses.Length >= SuccessThreshold);
 
+        Debug.Log(numCheckPointsTouched / CheckPointStatuses.Length);
         if (success)
         {
             FirstCheckpoint = -1;
@@ -61,17 +64,23 @@ public class RotationChecker
 
     public void AddCheckpoint(int index)
     {
+        Debug.Log(Direction);
+        Debug.Log(index);
         //If entering for the first time
-        if(FirstCheckpoint == -1)
+        if (FirstCheckpoint == -1)
         {
             FirstCheckpoint = index;
             CurrentCheckpoint = index;
+            CheckPointStatuses[index] = 1;
         }
-        else if(index == CurrentCheckpoint + 1)
+        else if(index == CurrentCheckpoint + 1 || (CurrentCheckpoint == 3 && index == 0))
         {
+            Debug.Log("Wrong");
             if(Direction == Directions.None)
             {
                 Direction = Directions.Clockwise;
+                CurrentCheckpoint = index;
+                CheckPointStatuses[index] = 1;
             } 
             else if(Direction == Directions.Clockwise)
             {
@@ -83,19 +92,23 @@ public class RotationChecker
                 //Do Nothing?
             }
         } 
-        else if(index == FirstCheckpoint - 1)
+        else if(index == CurrentCheckpoint - 1 || (CurrentCheckpoint == 0 && index == 3))
         {
+            Debug.Log("in");
             if(Direction == Directions.None)
             {
                 Direction = Directions.Counterclockwise;
-            }
-            else if(Direction == Directions.Clockwise)
-            {
-                //Do Nothing?
+                CurrentCheckpoint = index;
+                CheckPointStatuses[index] = 1;
             }
             else if(Direction == Directions.Counterclockwise)
             {
                 CheckPointStatuses[index] = 1;
+                CurrentCheckpoint = index;
+            }
+            else if (Direction == Directions.Clockwise)
+            {
+                //Do Nothing?
             }
         }
     }
