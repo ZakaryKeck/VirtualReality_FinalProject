@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class appleFloat : MonoBehaviour
 {
-    public float speed = 0.05f;
+    public float speed = 0.025f;
 
     public float tester;
 
@@ -20,6 +20,7 @@ public class appleFloat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 0.025f;
         tester = Random.Range(0f, 1f);
 
         float randomDirection = tester;
@@ -33,8 +34,8 @@ public class appleFloat : MonoBehaviour
         yRotate = Random.Range(0f, 359f);
         zRotate = Random.Range(0f, 359f);
 
-        yMax = transform.position.y + 0.03;
-        yMin = transform.position.y - 0.03;
+        yMax = transform.position.y + 0.025;
+        yMin = transform.position.y - 0.025;
 
         transform.Rotate ( new Vector3(xRotate, yRotate, zRotate) );
     }
