@@ -8,7 +8,7 @@ public class ConeCheckPoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject)
+        if (other.gameObject.tag == "EmptyCone")
         {
             transform.parent.gameObject.GetComponent<ConeTrackerManager>().HitCheckpoint(CheckPointNumber);
         }
