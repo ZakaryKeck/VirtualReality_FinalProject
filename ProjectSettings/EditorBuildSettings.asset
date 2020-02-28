@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/jakeApple.unity
+    guid: 75fda66d4f148e041979f98d28b51155
   m_configObjects: {}

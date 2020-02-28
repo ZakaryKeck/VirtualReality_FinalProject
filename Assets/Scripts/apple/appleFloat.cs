@@ -17,10 +17,13 @@ public class appleFloat : MonoBehaviour
 
     public int direction = 1;
 
+    public int inWater;
+
     // Start is called before the first frame update
     void Start()
     {
         speed = 0.025f;
+        inWater = 1;
         tester = Random.Range(0f, 1f);
 
         float randomDirection = tester;
@@ -43,27 +46,30 @@ public class appleFloat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        double yNew = transform.position.y + direction * speed * Time.deltaTime;
-        if (yNew >= yMax)
+        if (inWater == 1)
         {
-            yNew = yMax;
-            direction *= -1;
-        }
-        else if (yNew <= yMin)
-        {
-            yNew = yMin;
-            direction *= -1;
-        }
+            double yNew = transform.position.y + direction * speed * Time.deltaTime;
+            if (yNew >= yMax)
+            {
+                yNew = yMax;
+                direction *= -1;
+            }
+            else if (yNew <= yMin)
+            {
+                yNew = yMin;
+                direction *= -1;
+            }
 
-        transform.position = new Vector3(transform.position.x, (float)yNew, transform.position.z);
-        transform.Rotate(new Vector3(15, 15, 15) * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, (float)yNew, transform.position.z);
+            transform.Rotate(new Vector3(15, 15, 15) * Time.deltaTime);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("water"))
         {
+            inWater = 1;
             gameObject.GetComponent<Rigidbody>().useGravity = false;
         }
     }
@@ -72,6 +78,7 @@ public class appleFloat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("water"))
         {
+            inWater = 0;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
     }
