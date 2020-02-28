@@ -25,7 +25,7 @@ public class appleFloat : MonoBehaviour
 
         float randomDirection = tester;
         //float randomDirection = Random.Range(0f, 1f);
-        if(randomDirection <= 0.5f)
+        if (randomDirection <= 0.5f)
         {
             direction = -1;
         }
@@ -37,7 +37,7 @@ public class appleFloat : MonoBehaviour
         yMax = transform.position.y + 0.025;
         yMin = transform.position.y - 0.025;
 
-        transform.Rotate ( new Vector3(xRotate, yRotate, zRotate) );
+        transform.Rotate(new Vector3(xRotate, yRotate, zRotate));
     }
 
     // Update is called once per frame
@@ -58,5 +58,21 @@ public class appleFloat : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, (float)yNew, transform.position.z);
         transform.Rotate(new Vector3(15, 15, 15) * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("water"))
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = false;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("water"))
+        {
+            gameObject.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 }
