@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: [EmptyCone, EmptyCone, Sugar]
+  tags:
+  - EmptyCone
+  - EmptyCone
+  - Sugar
+  - redApple
+  - greenApple
+  - water
   layers:
   - Default
   - TransparentFX
