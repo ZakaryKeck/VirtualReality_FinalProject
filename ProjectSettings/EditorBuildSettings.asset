@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/jakeApple.unity
     guid: 75fda66d4f148e041979f98d28b51155
+  - enabled: 1
+    path: Assets/Scenes/SugarScene_Kameron.unity
+    guid: 8f5498c9e8ca8774da0efc2d3f93b034
   m_configObjects: {}
