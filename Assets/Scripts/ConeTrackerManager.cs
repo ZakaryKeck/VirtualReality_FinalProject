@@ -14,7 +14,7 @@ public class ConeTrackerManager : MonoBehaviour
         if (RotationChecker.CheckComplete())
         {
             //Increase Cone Size
-            CurrentCone.transform.GetChild(0).gameObject.transform.localScale += new Vector3(.2f, .2f, .2f);
+            CurrentCone.transform.localScale = CurrentCone.transform.localScale + new Vector3(.1f, .1f, .1f);
         }
     }
 
@@ -50,6 +50,7 @@ public class RotationChecker
         }
         bool success = (numCheckPointsTouched / CheckPointStatuses.Length >= SuccessThreshold);
 
+        Debug.Log(numCheckPointsTouched / CheckPointStatuses.Length);
         if (success)
         {
             FirstCheckpoint = -1;
@@ -63,6 +64,8 @@ public class RotationChecker
 
     public void AddCheckpoint(int index)
     {
+        Debug.Log(Direction);
+        Debug.Log(index);
         //If entering for the first time
         if (FirstCheckpoint == -1)
         {
@@ -72,6 +75,7 @@ public class RotationChecker
         }
         else if(index == CurrentCheckpoint + 1 || (CurrentCheckpoint == 3 && index == 0))
         {
+            Debug.Log("Wrong");
             if(Direction == Directions.None)
             {
                 Direction = Directions.Clockwise;
@@ -86,11 +90,11 @@ public class RotationChecker
             else if(Direction == Directions.Counterclockwise)
             {
                 //Do Nothing?
-                //Or Reset?
             }
         } 
         else if(index == CurrentCheckpoint - 1 || (CurrentCheckpoint == 0 && index == 3))
         {
+            Debug.Log("in");
             if(Direction == Directions.None)
             {
                 Direction = Directions.Counterclockwise;
@@ -105,7 +109,6 @@ public class RotationChecker
             else if (Direction == Directions.Clockwise)
             {
                 //Do Nothing?
-                //Or Reset?
             }
         }
     }
