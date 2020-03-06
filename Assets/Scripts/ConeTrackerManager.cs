@@ -7,6 +7,7 @@ public class ConeTrackerManager : MonoBehaviour
 {
     private GameObject CurrentCone;
     private RotationChecker RotationChecker = new RotationChecker();
+    private float maxCottonCandySize = .8f;
 
     public void HitCheckpoint(int index)
     {
@@ -14,7 +15,10 @@ public class ConeTrackerManager : MonoBehaviour
         if (RotationChecker.CheckComplete())
         {
             //Increase Cone Size
-            CurrentCone.transform.GetChild(0).gameObject.transform.localScale += new Vector3(.2f, .2f, .2f);
+            if (CurrentCone.transform.GetChild(0).gameObject.transform.localScale[0] < maxCottonCandySize)
+            {
+                CurrentCone.transform.GetChild(0).gameObject.transform.localScale += new Vector3(.2f, .2f, .2f);
+            }
         }
     }
 
