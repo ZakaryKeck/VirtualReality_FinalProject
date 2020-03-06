@@ -18,12 +18,14 @@ public class appleFloat : MonoBehaviour
     public int direction = 1;
 
     public int inWater;
+    public int pickedUp;
 
     // Start is called before the first frame update
     void Start()
     {
         speed = 0.025f;
         inWater = 1;
+        pickedUp = 0;
         tester = Random.Range(0f, 1f);
 
         float randomDirection = tester;
@@ -46,7 +48,7 @@ public class appleFloat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inWater == 1)
+        if (inWater == 1 && pickedUp == 0)
         {
             double yNew = transform.position.y + direction * speed * Time.deltaTime;
             if (yNew >= yMax)
@@ -81,5 +83,15 @@ public class appleFloat : MonoBehaviour
             inWater = 0;
             gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
+    }
+
+    void OnPickedUp()
+    {
+        pickedUp = 1;
+    }
+
+    void OnLetGo()
+    {
+        pickedUp = 0;
     }
 }

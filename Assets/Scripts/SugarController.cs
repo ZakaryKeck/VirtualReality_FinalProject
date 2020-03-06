@@ -5,24 +5,55 @@ using UnityEngine;
 public class SugarController : MonoBehaviour
 {
     public Material pouringTexture;
-    public GameObject ccMachine;
+    public Material defaultMaterial;
+    public int pourThreshold;
+    public Transform origin = null;
+    public GameObject streamPrefab = null;
 
-    private int amountInBag;
+    private bool isPouring = false;
+    private Stream currentStream = null;
     
-
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
+        bool pourCheck = CalculatePourAngle() < pourThreshold;
         
+        if (isPouring != pourCheck)
+        {
+            isPouring = pourCheck;
+
+            if (isPouring)
+            {
+                StartPour();
+            }
+            else
+            {
+                EndPour();
+            }
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void StartPour()
     {
-        
-        //if (transform.eulerAngles.x >= 45)
-        //{
-        //    gameObject.GetComponent().material = pouringTexture;
-        //}
+        gameObject.GetComponent<MeshRenderer>().material = pouringTexture;
+        currentStream = CreateStream();
+        currentStream.Begin();
+    }
+
+    private void EndPour()
+    {
+        gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
+        currentStream.End();
+        currentStream = null;
+    }
+
+    private float CalculatePourAngle()
+    {
+        return transform.up.y * Mathf.Rad2Deg;
+    }
+
+    private Stream CreateStream()
+    {
+        GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
+        return streamObject.GetComponent<Stream>();
     }
 }
