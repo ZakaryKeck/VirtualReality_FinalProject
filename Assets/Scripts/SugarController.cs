@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SugarController : MonoBehaviour
 {
-    public Material pouringTexture;
-    public Material defaultMaterial;
-    public int pourThreshold;
+    public int pourThreshold = 10;
     public Transform origin = null;
     public GameObject streamPrefab = null;
 
@@ -34,14 +32,12 @@ public class SugarController : MonoBehaviour
 
     private void StartPour()
     {
-        gameObject.GetComponent<MeshRenderer>().material = pouringTexture;
         currentStream = CreateStream();
         currentStream.Begin();
     }
 
     private void EndPour()
     {
-        gameObject.GetComponent<MeshRenderer>().material = defaultMaterial;
         currentStream.End();
         currentStream = null;
     }

@@ -3,7 +3,10 @@ guid: e158eec02677a4948811dec5d7db97ee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - origin: {instanceID: 0}
+  - streamPrefab: {fileID: 5238570228697279498, guid: 687fe5b6c1388c34882009636030b3c7,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
