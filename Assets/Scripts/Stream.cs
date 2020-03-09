@@ -7,6 +7,8 @@ public class Stream : MonoBehaviour
     private LineRenderer lineRenderer = null;
     private ParticleSystem splashParticle = null;
 
+    private SugarBowl sugarBowl;
+
     private Coroutine pourRoutine = null;
     private Vector3 targetPosition = Vector3.zero;
 
@@ -65,6 +67,11 @@ public class Stream : MonoBehaviour
 
         Physics.Raycast(ray, out hit, 2.0f);
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2.0f);
+        if (hit.collider.transform.tag == "cc-bowl")
+        {
+            this.sugarBowl = hit.collider.transform.gameObject.GetComponent<SugarBowl>();
+            this.sugarBowl.fill();
+        }
 
         return endPoint;
     }

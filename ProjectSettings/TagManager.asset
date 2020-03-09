@@ -10,6 +10,9 @@ TagManager:
   - redApple
   - greenApple
   - water
+  - sugar_stream
+  - cc-bowl
+  - cone-tracker
   layers:
   - Default
   - TransparentFX
