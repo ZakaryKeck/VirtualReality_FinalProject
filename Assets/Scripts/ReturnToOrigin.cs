@@ -2,19 +2,49 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ReturnToOrigin : MonoBehaviour
+namespace Valve.VR.InteractionSystem.Sample
 {
-    // Start is called before the first frame update
-    void Start()
+    public class ReturnToOrigin : MonoBehaviour
     {
-        
+        private bool outOfOrigin = false;
+        private bool inHand = false;
+        private Vector3 originPosition;
+        private Quaternion originRotation;
+        private Interactable interactable;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            this.interactable = gameObject.GetComponent<Interactable>();
+            Transform trans = gameObject.GetComponent<Transform>();
+            this.originPosition = trans.position;
+            this.originRotation = trans.rotation;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (this.interactable != null && interactable.attachedToHand != null)
+            {
+                this.inHand = true;
+            }
+            else
+            {
+                this.inHand = false;
+            }
+
+            if (this.outOfOrigin && !this.inHand)
+            {
+                gameObject.transform.position = this.originPosition;
+                gameObject.transform.rotation = this.originRotation;
+                this.outOfOrigin = false;
+            }
+        }
+
+        void OnTriggerExit()
+        {
+            this.outOfOrigin = true;
+        }
+
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
 }
