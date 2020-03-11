@@ -52,4 +52,9 @@ public class SugarController : MonoBehaviour
         GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
         return streamObject.GetComponent<Stream>();
     }
+
+    public bool IsPouring()
+    {
+        return this.isPouring;
+    }
 }
