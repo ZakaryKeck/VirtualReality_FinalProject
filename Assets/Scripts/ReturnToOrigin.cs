@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 
 namespace Valve.VR.InteractionSystem.Sample
@@ -37,6 +38,8 @@ namespace Valve.VR.InteractionSystem.Sample
             {
                 gameObject.transform.position = this.originPosition;
                 gameObject.transform.rotation = this.originRotation;
+                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 this.outOfOrigin = false;
             }
         }
