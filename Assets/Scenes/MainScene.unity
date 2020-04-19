@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20055730}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.8428707, y: 0.783, z: 1.3956654}
+  m_LocalPosition: {x: -0, y: 0.811, z: 0.028}
   m_LocalScale: {x: 0.4, y: 0.39999998, z: 0.4}
   m_Children:
   - {fileID: 820767833}
@@ -2914,17 +2914,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8428707
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.39566547
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
@@ -2934,7 +2934,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
@@ -2944,7 +2944,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
@@ -2959,7 +2959,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
