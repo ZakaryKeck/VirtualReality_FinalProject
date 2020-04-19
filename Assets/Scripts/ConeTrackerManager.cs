@@ -9,6 +9,8 @@ public class ConeTrackerManager : MonoBehaviour
     private RotationChecker RotationChecker = new RotationChecker();
     private float maxCottonCandySize = .8f;
     public GameObject Sparkles;
+    public AudioSource CompleteSound;
+
 
     public void HitCheckpoint(int index)
     {
@@ -19,12 +21,14 @@ public class ConeTrackerManager : MonoBehaviour
             {
                 //Increase Cone Size
                 CurrentCone.transform.GetChild(0).gameObject.transform.localScale += new Vector3(.2f, .2f, .2f);
-                Instantiate(Sparkles, CurrentCone.transform.GetChild(0).gameObject.transform);
-            } else
+            } else if (CurrentCone.transform.GetChild(0).gameObject.transform.localScale[0] == maxCottonCandySize)
             {
                 //Instantiate sparkles feedback
-                Debug.Log('k');
-                Instantiate(Sparkles, CurrentCone.transform.GetChild(0).gameObject.transform);
+                GameObject sparkles = Instantiate(Sparkles, transform.position, transform.rotation);
+                sparkles.transform.localScale = new Vector3(.05f, .05f, .05f);
+                sparkles.GetComponent<ParticleSystem>().Play();
+                Destroy(sparkles, 1);
+                CompleteSound.Play();
             }
         }
     }
