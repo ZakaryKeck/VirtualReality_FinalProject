@@ -8,16 +8,23 @@ public class ConeTrackerManager : MonoBehaviour
     private GameObject CurrentCone;
     private RotationChecker RotationChecker = new RotationChecker();
     private float maxCottonCandySize = .8f;
+    public GameObject Sparkles;
 
     public void HitCheckpoint(int index)
     {
         RotationChecker.AddCheckpoint(index);
         if (RotationChecker.CheckComplete())
         {
-            //Increase Cone Size
             if (CurrentCone.transform.GetChild(0).gameObject.transform.localScale[0] < maxCottonCandySize)
             {
+                //Increase Cone Size
                 CurrentCone.transform.GetChild(0).gameObject.transform.localScale += new Vector3(.2f, .2f, .2f);
+                Instantiate(Sparkles, CurrentCone.transform.GetChild(0).gameObject.transform);
+            } else
+            {
+                //Instantiate sparkles feedback
+                Debug.Log('k');
+                Instantiate(Sparkles, CurrentCone.transform.GetChild(0).gameObject.transform);
             }
         }
     }
