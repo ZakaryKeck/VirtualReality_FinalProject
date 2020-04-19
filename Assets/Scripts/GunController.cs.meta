@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5af8291c48dc6494ea96760feeb3f04a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - origin: {instanceID: 0}
+  - streamPrefab: {fileID: 5238570228697279498, guid: 687fe5b6c1388c34882009636030b3c7,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
