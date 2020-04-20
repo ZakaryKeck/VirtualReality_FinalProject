@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpawnHandler : MonoBehaviour
 {
     public int tester = 0;
-    public int redNumber = 5;
-    public int greenNumber = 5;
-    public int yellowNumber = 0;
+    public int redNumber = 12;
+    public int greenNumber = 12;
+    public int rottenNumber = 6;
     public List<string> spawnList;
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,9 @@ public class SpawnHandler : MonoBehaviour
         {
             spawnList.Add("green");
         }
-        for (int i = 0; i <= yellowNumber; i++)
+        for (int i = 0; i <= rottenNumber; i++)
         {
-            spawnList.Add("yellow");
+            spawnList.Add("rotten");
         }
         tester = spawnList.Count;
     }

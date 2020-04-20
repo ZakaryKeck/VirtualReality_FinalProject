@@ -7,7 +7,7 @@ public class AppleSpawner : MonoBehaviour
     public int tester = 0;
     public GameObject redApple;
     public GameObject greenApple;
-    //public GameObject yellowApple;
+    public GameObject rottenApple;
     public GameObject spawnerList;
     // Start is called before the first frame update
     IEnumerator Start()
@@ -38,10 +38,10 @@ public class AppleSpawner : MonoBehaviour
             spawned.transform.position = transform.position;
             tester = 3;
         }
-        /*else if (type == "yellow")
+        else if (type == "rotten")
         {
-            var spawned = Instantiate(yellowApple);
+            var spawned = Instantiate(rottenApple);
             spawned.transform.position = transform.position;
-        }*/
+        }
     }
 }

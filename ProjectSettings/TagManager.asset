@@ -17,6 +17,7 @@ TagManager:
   - LeftHand
   - RightHand
   - Base
+  - rottenApple
   layers:
   - Default
   - TransparentFX
