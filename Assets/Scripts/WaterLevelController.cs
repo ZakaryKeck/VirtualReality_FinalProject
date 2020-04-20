@@ -9,7 +9,7 @@ using UnityEngine;
 
 public class WaterLevelController : MonoBehaviour
 {
-    public GameObject target;
+    public Target target;
     public GameObject water;
     public Cap tubeCap;
     public bool full = false;
@@ -25,7 +25,7 @@ public class WaterLevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!tubeCap.isFull())
+        if (!tubeCap.isFull() && target.getActive())
         {
             
             UnityEngine.Debug.Log("Collide Detect");

@@ -10,10 +10,13 @@ namespace Valve.VR.InteractionSystem.Sample
     {
         public Transform origin = null;
         public GameObject streamPrefab = null;
+        public Target target = null;
         private Interactable interactable;
 
         private bool inHand = false;
         private GunStream currentStream = null;
+
+        private bool isHittingTarget = false;
 
         private void Start()
         {
@@ -36,6 +39,8 @@ namespace Valve.VR.InteractionSystem.Sample
                     EndShooting();
                 }
             }
+            this.isHittingTarget = IsHittingTarget();
+            this.target.setActive(this.isHittingTarget);
         }
 
         private void StartShooting()
@@ -59,6 +64,30 @@ namespace Valve.VR.InteractionSystem.Sample
         public bool isShooting()
         {
             return this.inHand;
+        }
+
+        public bool IsHittingTarget()
+        {
+            if (this.inHand)
+            {
+                RaycastHit hit;
+                Ray ray = new Ray(this.origin.transform.position, Vector3.forward);
+
+                Physics.Raycast(ray, out hit, 5.0f);
+                // UnityEngine.Debug.Log(hit.collider.tag + " " + gameObject.tag);
+                if (hit.collider.tag == gameObject.tag)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }   
         }
     }
 }
