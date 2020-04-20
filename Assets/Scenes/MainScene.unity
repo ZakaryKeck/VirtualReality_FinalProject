@@ -355,6 +355,75 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1001 &29817184
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511108, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111848857986511109, guid: abeae246f1e669249afdd6eedd78e5bc,
+        type: 3}
+      propertyPath: m_Name
+      value: SquirtGame
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: abeae246f1e669249afdd6eedd78e5bc, type: 3}
 --- !u!1 &78388895
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +564,7 @@ Transform:
   m_Children:
   - {fileID: 287345951}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151712405
 GameObject:
@@ -548,6 +617,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &151712408
 SphereCollider:
@@ -734,7 +804,7 @@ MonoBehaviour:
   tester: 0
   redNumber: 5
   greenNumber: 5
-  yellowNumber: 0
+  rottenNumber: 6
   spawnList: []
 --- !u!114 &268305027 stripped
 MonoBehaviour:
@@ -908,6 +978,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &292294981
 SphereCollider:
@@ -1119,7 +1190,7 @@ Transform:
   - {fileID: 78388896}
   - {fileID: 201827290}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &587079003
 GameObject:
@@ -1443,6 +1514,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: red
   counter: {fileID: 78388895}
+  done: {fileID: 0}
+  notDone: {fileID: 0}
+  progress1: {fileID: 0}
+  progress2: {fileID: 0}
+  progress3: {fileID: 0}
+  progress4: {fileID: 0}
+  progress5: {fileID: 0}
+  progress6: {fileID: 0}
+  progress7: {fileID: 0}
+  progress8: {fileID: 0}
+  progress9: {fileID: 0}
+  progress10: {fileID: 0}
+  progressList: []
+  Test: 0
 --- !u!136 &755796725
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1830,7 +1915,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &910918357
 GameObject:
@@ -1861,7 +1946,7 @@ Transform:
   m_Children:
   - {fileID: 1521942566}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1043499393
 GameObject:
@@ -1914,6 +1999,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1043499396
 SphereCollider:
@@ -2026,6 +2112,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1121643813
 SphereCollider:
@@ -2228,7 +2315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2295,6 +2382,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1273632660
 SphereCollider:
@@ -2407,6 +2495,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1328878900
 SphereCollider:
@@ -2604,7 +2693,7 @@ Transform:
   m_Children:
   - {fileID: 386606269}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1602886610
 GameObject:
@@ -2751,6 +2840,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1681518553
 SphereCollider:
@@ -2863,6 +2953,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &1712940180
 SphereCollider:
@@ -3048,7 +3139,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 03a84fb435665c94eba78d58e815561b,
         type: 3}
@@ -3228,7 +3319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3387,6 +3478,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: green
   counter: {fileID: 78388895}
+  done: {fileID: 0}
+  notDone: {fileID: 0}
+  progress1: {fileID: 0}
+  progress2: {fileID: 0}
+  progress3: {fileID: 0}
+  progress4: {fileID: 0}
+  progress5: {fileID: 0}
+  progress6: {fileID: 0}
+  progress7: {fileID: 0}
+  progress8: {fileID: 0}
+  progress9: {fileID: 0}
+  progress10: {fileID: 0}
+  progressList: []
+  Test: 0
 --- !u!136 &2024770651
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3701,6 +3806,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &2077806837
 SphereCollider:
@@ -3813,6 +3919,7 @@ MonoBehaviour:
     type: 3}
   greenApple: {fileID: 1238824025658755166, guid: 81d4c8fc849052940b4a40dbd43f1a7e,
     type: 3}
+  rottenApple: {fileID: 0}
   spawnerList: {fileID: 201827289}
 --- !u!135 &2084603986
 SphereCollider:
@@ -3993,7 +4100,7 @@ PrefabInstance:
     - target: {fileID: 1005416214811877921, guid: 0a33e8d3a31781747be8923e74b50420,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1005416214811877921, guid: 0a33e8d3a31781747be8923e74b50420,
         type: 3}

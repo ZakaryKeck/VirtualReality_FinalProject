@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/jakeApple.unity
     guid: 75fda66d4f148e041979f98d28b51155
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SquirtScene.unity
     guid: 8f5498c9e8ca8774da0efc2d3f93b034
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: af75fe7d88d566541b7cae1e6482760d
   m_configObjects: {}
