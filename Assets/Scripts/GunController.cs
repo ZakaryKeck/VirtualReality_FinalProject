@@ -57,7 +57,7 @@ namespace Valve.VR.InteractionSystem.Sample
 
         private GunStream CreateStream()
         {
-            GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, transform);
+            GameObject streamObject = Instantiate(streamPrefab, origin.position, Quaternion.identity, origin.transform);
             return streamObject.GetComponent<GunStream>();
         }
 
@@ -71,7 +71,7 @@ namespace Valve.VR.InteractionSystem.Sample
             if (this.inHand)
             {
                 RaycastHit hit;
-                Ray ray = new Ray(this.origin.transform.position, Vector3.forward);
+                Ray ray = new Ray(this.origin.transform.position, this.origin.transform.forward);
 
                 Physics.Raycast(ray, out hit, 5.0f);
                 // UnityEngine.Debug.Log(hit.collider.tag + " " + gameObject.tag);

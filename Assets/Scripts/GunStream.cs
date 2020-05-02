@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class GunStream : MonoBehaviour
@@ -9,6 +10,7 @@ public class GunStream : MonoBehaviour
 
     private Coroutine pourRoutine = null;
     private Vector3 targetPosition = Vector3.zero;
+
 
     private void Awake()
     {
@@ -61,7 +63,7 @@ public class GunStream : MonoBehaviour
     private Vector3 FindEndPoint()
     {
         RaycastHit hit;
-        Ray ray = new Ray(transform.position, Vector3.forward);
+        Ray ray = new Ray(transform.position, transform.parent.transform.forward);
 
         Physics.Raycast(ray, out hit, 5.0f);
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(5.0f);
