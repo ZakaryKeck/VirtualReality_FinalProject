@@ -19,6 +19,9 @@ TagManager:
   - Base
   - rottenApple
   - cc-color
+  - blue
+  - green
+  - pink
   layers:
   - Default
   - TransparentFX
