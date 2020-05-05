@@ -23,7 +23,7 @@ public class Target : MonoBehaviour
         return this.active;
     }
 
-    void Update()
+    /*void Update()
     {   
         
         double yNew = transform.position.y + direction * speed * Time.deltaTime;
@@ -41,5 +41,5 @@ public class Target : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x, (float)yNew, transform.position.z);
         
-    }
+    }*/
 }
