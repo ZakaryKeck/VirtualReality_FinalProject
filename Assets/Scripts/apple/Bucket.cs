@@ -8,6 +8,8 @@ public class Bucket : MonoBehaviour
     public GameObject counter;
     public Material done;
     public Material notDone;
+    public Material Reddone;
+    public Material RednotDone;
     // replaceing this with a proper list / parent object as soon as i can figure it out...
     public GameObject progress1;
     public GameObject progress2;
@@ -20,6 +22,18 @@ public class Bucket : MonoBehaviour
     public GameObject progress9;
     public GameObject progress10;
     public List<GameObject> progressList;
+
+    public GameObject Redprogress1;
+    public GameObject Redprogress2;
+    public GameObject Redprogress3;
+    public GameObject Redprogress4;
+    public GameObject Redprogress5;
+    public GameObject Redprogress6;
+    public GameObject Redprogress7;
+    public GameObject Redprogress8;
+    public GameObject Redprogress9;
+    public GameObject Redprogress10;
+    public List<GameObject> RedprogressList;
 
     public int Test = 0;
 
@@ -41,19 +55,40 @@ public class Bucket : MonoBehaviour
         progressList.Add(progress8);
         progressList.Add(progress9);
         progressList.Add(progress10);
+
+        RedprogressList.Add(Redprogress1);
+        RedprogressList.Add(Redprogress2);
+        RedprogressList.Add(Redprogress3);
+        RedprogressList.Add(Redprogress4);
+        RedprogressList.Add(Redprogress5);
+        RedprogressList.Add(Redprogress6);
+        RedprogressList.Add(Redprogress7);
+        RedprogressList.Add(Redprogress8);
+        RedprogressList.Add(Redprogress9);
+        RedprogressList.Add(Redprogress10);
     }
 
     // Update is called once per frame
     void UpdateProgress()
     {
-        int j = counter.GetComponent<counter>().redCount + counter.GetComponent<counter>().greenCount;
-        Test = j;
-        for(int i=0;i < j; i++){
+        int g = counter.GetComponent<counter>().greenCount;
+        int r = counter.GetComponent<counter>().redCount;
+        Test = g;
+        for(int i=0;i < g; i++){
             progressList[i].GetComponent<MeshRenderer>().material = done;
         }
-        for(int i=j;i<progressList.Count;i++)
+        for(int i=g;i<progressList.Count;i++)
         {
+            Test = i;
             progressList[i].GetComponent<MeshRenderer>().material = notDone;
+        }
+
+        for(int j=0;j < r; j++){
+            RedprogressList[j].GetComponent<MeshRenderer>().material = Reddone;
+        }
+        for(int j=r;j<RedprogressList.Count-1;j++)
+        {
+            RedprogressList[j].GetComponent<MeshRenderer>().material = RednotDone;
         }
     }
 
@@ -62,6 +97,7 @@ public class Bucket : MonoBehaviour
         if (other.gameObject.CompareTag("redApple") && type == "red")
         {
             //other.gameObject.SetActive(false);
+            other.gameObject.tag = "Untagged";
             counter.GetComponent<counter>().redCount++;
             UpdateProgress();
             //Feedback
@@ -72,6 +108,7 @@ public class Bucket : MonoBehaviour
         } else if(other.gameObject.CompareTag("greenApple") && type == "green")
         {
             //other.gameObject.SetActive(false);
+            other.gameObject.tag = "Untagged";
             counter.GetComponent<counter>().greenCount++;
             UpdateProgress();
 
@@ -83,6 +120,7 @@ public class Bucket : MonoBehaviour
         } else if(other.gameObject.CompareTag("rottenApple"))
         {
             //other.gameObject.SetActive(false);
+            other.gameObject.tag = "Untagged";
             if(counter.GetComponent<counter>().greenCount > 0)
             {
                 counter.GetComponent<counter>().greenCount--;
