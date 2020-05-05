@@ -61,7 +61,7 @@ public class Bucket : MonoBehaviour
     {
         if (other.gameObject.CompareTag("redApple") && type == "red")
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             counter.GetComponent<counter>().redCount++;
             UpdateProgress();
             //Feedback
@@ -71,7 +71,7 @@ public class Bucket : MonoBehaviour
             CompleteSound.Play();
         } else if(other.gameObject.CompareTag("greenApple") && type == "green")
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             counter.GetComponent<counter>().greenCount++;
             UpdateProgress();
 
@@ -82,7 +82,7 @@ public class Bucket : MonoBehaviour
             CompleteSound.Play();
         } else if(other.gameObject.CompareTag("rottenApple"))
         {
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
             if(counter.GetComponent<counter>().greenCount > 0)
             {
                 counter.GetComponent<counter>().greenCount--;
