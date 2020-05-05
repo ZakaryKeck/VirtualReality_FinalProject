@@ -22,6 +22,12 @@ public class Bucket : MonoBehaviour
     public List<GameObject> progressList;
 
     public int Test = 0;
+
+    public AudioSource CompleteSound;
+    public AudioSource FailedSound;
+    public GameObject RedSparkles;
+    public GameObject GreenSparkles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,11 +64,22 @@ public class Bucket : MonoBehaviour
             other.gameObject.SetActive(false);
             counter.GetComponent<counter>().redCount++;
             UpdateProgress();
+            //Feedback
+            GameObject sparkles = Instantiate(RedSparkles, transform.position, transform.rotation);
+            sparkles.GetComponent<ParticleSystem>().Play();
+            Destroy(sparkles, 1);
+            CompleteSound.Play();
         } else if(other.gameObject.CompareTag("greenApple") && type == "green")
         {
             other.gameObject.SetActive(false);
             counter.GetComponent<counter>().greenCount++;
             UpdateProgress();
+
+            //Feedback
+            GameObject sparkles = Instantiate(GreenSparkles, transform.position, transform.rotation);
+            sparkles.GetComponent<ParticleSystem>().Play();
+            Destroy(sparkles, 1);
+            CompleteSound.Play();
         } else if(other.gameObject.CompareTag("rottenApple"))
         {
             other.gameObject.SetActive(false);
@@ -75,6 +92,7 @@ public class Bucket : MonoBehaviour
                 counter.GetComponent<counter>().redCount--;
             }
             UpdateProgress();
+            FailedSound.Play();
         }
     }
 }
