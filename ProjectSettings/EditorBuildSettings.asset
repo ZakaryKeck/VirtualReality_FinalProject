@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SquirtScene.unity
     guid: 8f5498c9e8ca8774da0efc2d3f93b034
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainScene.unity
     guid: af75fe7d88d566541b7cae1e6482760d
+  - enabled: 1
+    path: Assets/Scenes/circus_main.unity
+    guid: e244f8aa0635f2d498500978844c254c
   m_configObjects: {}
